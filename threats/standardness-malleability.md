@@ -24,7 +24,7 @@ thus lead the victim to own effectively non-relayable transactions.
 * Vaults ?
 * DLC ?
 
-## Mitigation
+## Mitigations
 
 
 TODO: incorporate p2p meetings discussions
