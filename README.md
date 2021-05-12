@@ -14,6 +14,8 @@ known implementations and standards of each of them.
 
 The last [section](discussions/README.md) submit to the dev community a list of discussions/questions about potential solutions to problems raised in the first sections.
 
+Finally, a serie of [workshops](workshops/) are organized to foster discussions and developements in those areas.
+
 Feel free to contribute :)
 
 Licensed under Apache 2.0
