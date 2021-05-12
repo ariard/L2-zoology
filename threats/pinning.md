@@ -37,9 +37,15 @@ path is uniform to make your CPFP successful."
 
 ### Timevalue DoS
 
-TODO
+From "On Mempool Funny Games against Multi-Party Funded Transactions", TODO to be reworked
 
-### Pinning of State Transactions
+"Current bip125 RBF rules make signaling mandatory to enable replacement, otherwise even a better-feerate candidate won't replace a conflicting transaction with a finalized nSequence field [4]. A L2 client might be in possession of better-feerate multi-party funded transactions but it won't propagate on today's network if a opt-out double-spend is already present.
+
+In the model described above, Alice might provide a consensus-and-standard valid input to Bob and Caroll, they will verify and accept it, finish the transaction finalization and broadcast. Meantimes, Alice will mass-connect to the network and announce a double-spend of its input with nSequence=0xffffffff. Alice-Bob-Caroll's funding transaction won't propagate on the network as it's an attempt to double-spend a rbf opt-out transaction.
+
+A L2 client, with only a view of its mempool at best, won't understand why the transaction doesn't confirm and if it's responsible for the fee-bumping, it might do multiple rounds of feerate increase through CPFP, in vain. As the fee-bumping algorithm is assumed to be known if the victim client is open source code, the attacker can predict when the fee-bumping logic reaches its upper bound. When this bound is reached, the attacker might evict its own malicious opt-out double-spend by replacing an unconfirmed parent. At the next rebroadcast attempt by the L2 client, the funding transaction should propagate associated with a maliciously inflated feerate.
+
+Currently, we don't have mitigation against this simple pinning, as it exploits the first-seen mempool behavior. Participants of the multi-party funding transaction might double-spend their contributed inputs after some timeout, encumbering the fees and timevalue losses for nothing."
 
 ## Vulnerable Protocols
 
@@ -57,3 +63,4 @@ TODO
 
 * [RBF Pinning with Counterparties and Competing Interest](https://lists.linuxfoundation.org/pipermail/lightning-dev/2020-April/002639.html)
 * [Pinning : The Good, The Bad, The Ugly](https://lists.linuxfoundation.org/pipermail/lightning-dev/2020-June/002758.html)
+* [On Memmpool Funny Games against Multi-Party Funded Transactions](https://lists.linuxfoundation.org/pipermail/lightning-dev/2021-May/003033.html)
