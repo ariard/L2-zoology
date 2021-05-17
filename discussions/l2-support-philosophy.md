@@ -24,4 +24,5 @@ Pursuing the current L2 design practice of relying on non-normative rules for pr
 * [CVE-2020-26895: LND Low-S Tx-relay Standardness](https://lists.linuxfoundation.org/pipermail/lightning-dev/2020-October/002858.html)
 * [P2P IRC Meeting 1](http://gnusha.org/bitcoin-core-dev/2020-09-22.log)
 * [P2P IRC Meeting 2](http://gnusha.org/bitcoin-core-dev/2020-11-17.log)
+* [P2P IRC Meeting 3](http://gnusha.org/bitcoin-core-dev/2021-04-20.log)
 * [add option to bypass contextual timelocks in testmempoolaccept](https://github.com/bitcoin/bitcoin/pull/21413)
